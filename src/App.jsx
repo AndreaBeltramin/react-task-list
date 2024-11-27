@@ -41,12 +41,10 @@ function App() {
 	return (
 		<>
 			<header>
-				<div className="container">
-					<h1 className="py-5">Task Manager</h1>
-				</div>
+				<h1 className="p-5">Task Manager</h1>
 			</header>
 			<main>
-				<div className="container py-4">
+				<div className="p-5">
 					<h2 className="mb-5">Current Tasks (4)</h2>
 					<ul>{uncompletedTasksList()}</ul>
 					<hr />
