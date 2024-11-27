@@ -29,4 +29,5 @@ li {
 .badge {
 	background-color: rgb(211, 105, 29);
 	font-size: 1rem;
+	border-radius: 0%;
 }
