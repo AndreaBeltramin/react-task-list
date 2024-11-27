@@ -25,3 +25,8 @@ ul {
 li {
 	font-size: 1.3rem;
 }
+
+.badge {
+	background-color: rgb(211, 105, 29);
+	font-size: 1rem;
+}

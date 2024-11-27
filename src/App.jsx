@@ -13,7 +13,9 @@ function App() {
 	const uncompletedTasksList = () => {
 		return currentTasksList.map((task) => (
 			<li key={task.id} className="mb-3">
-				<h3>{task.title}</h3>
+				<h3>
+					{task.title} <span className="badge">{task.state}</span>{" "}
+				</h3>
 				<ul>
 					<li>Priority: {task.priority}</li>
 					<li>Est. time {task.estimatedTime}</li>
@@ -30,7 +32,9 @@ function App() {
 	const tasksCompletedList = () => {
 		return completedTasksList.map((task) => (
 			<li key={task.id} className="mb-3">
-				<h3>{task.title}</h3>
+				<h3>
+					{task.title} <span className="badge">{task.state}</span>{" "}
+				</h3>
 				<ul>
 					<li>Priority: {task.priority}</li>
 					<li>Est. time {task.estimatedTime}</li>
