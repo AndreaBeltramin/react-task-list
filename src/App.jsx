@@ -11,8 +11,14 @@ function App() {
 	};
 	const currentTasksList = filterCurrentTasks();
 	const uncompletedTasksList = () => {
-		return currentTasksList.map((task, index) => (
-			<li key={task.id}>{task.title}</li>
+		return currentTasksList.map((task) => (
+			<li key={task.id} className="mb-3">
+				<h3>{task.title}</h3>
+				<ul>
+					<li>Priority: {task.priority}</li>
+					<li>Est. time {task.estimatedTime}</li>
+				</ul>
+			</li>
 		));
 	};
 
@@ -22,17 +28,32 @@ function App() {
 	};
 	const completedTasksList = filterCompletedTasks();
 	const tasksCompletedList = () => {
-		return completedTasksList.map((task, index) => (
-			<li key={task.id}>{task.title}</li>
+		return completedTasksList.map((task) => (
+			<li key={task.id} className="mb-3">
+				<h3>{task.title}</h3>
+				<ul>
+					<li>Priority: {task.priority}</li>
+					<li>Est. time {task.estimatedTime}</li>
+				</ul>
+			</li>
 		));
 	};
 	return (
 		<>
-			<h1>Task Manager</h1>
-			<h2>Current Tasks</h2>
-			<p>{uncompletedTasksList()}</p>
-			<h2>Completed Tasks</h2>
-			<p>{tasksCompletedList()}</p>
+			<header>
+				<div className="container">
+					<h1 className="py-5">Task Manager</h1>
+				</div>
+			</header>
+			<main>
+				<div className="container py-4">
+					<h2 className="mb-5">Current Tasks (4)</h2>
+					<ul>{uncompletedTasksList()}</ul>
+					<hr />
+					<h2 className="mt-4 mb-5">Completed Tasks (6)</h2>
+					<ul>{tasksCompletedList()}</ul>
+				</div>
+			</main>
 		</>
 	);
 }
