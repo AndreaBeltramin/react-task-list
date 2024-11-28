@@ -3,6 +3,12 @@ import { tasks } from "./data/tasks";
 import "./App.css";
 
 function App() {
+	function getColorBadgeClassNameFromState(state) {
+		if (state === "completed") return "badge-sucess";
+		if (state === "backlog") return "badge-danger";
+		if (state === "in_progress") return "badge-info";
+		return "";
+	}
 	//LISTA DI TASK DA COMPLETARE
 	const filterCurrentTasks = () => {
 		return tasks.filter(
@@ -14,7 +20,12 @@ function App() {
 		return currentTasksList.map((task) => (
 			<li key={task.id} className="mb-3">
 				<h3>
-					{task.title} <span className="badge">{task.state}</span>{" "}
+					{task.title}
+					<span
+						className={"badge " + getColorBadgeClassNameFromState(task.state)}
+					>
+						{task.state}
+					</span>
 				</h3>
 				<ul>
 					<li>Priority: {task.priority}</li>
@@ -33,7 +44,12 @@ function App() {
 		return completedTasksList.map((task) => (
 			<li key={task.id} className="mb-3">
 				<h3>
-					{task.title} <span className="badge">{task.state}</span>{" "}
+					{task.title}
+					<span
+						className={"badge " + getColorBadgeClassNameFromState(task.state)}
+					>
+						{task.state}
+					</span>
 				</h3>
 				<ul>
 					<li>Priority: {task.priority}</li>
@@ -49,10 +65,12 @@ function App() {
 			</header>
 			<main>
 				<div className="p-5">
-					<h2 className="mb-5">Current Tasks (4)</h2>
+					<h2 className="mb-5">Current Tasks ({currentTasksList.length})</h2>
 					<ul>{uncompletedTasksList()}</ul>
 					<hr />
-					<h2 className="mt-4 mb-5">Completed Tasks (6)</h2>
+					<h2 className="mt-4 mb-5">
+						Completed Tasks ({completedTasksList.length})
+					</h2>
 					<ul>{tasksCompletedList()}</ul>
 				</div>
 			</main>
